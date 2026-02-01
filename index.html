@@ -1,178 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jay 💖 Aaliyah – My Forever Valentine</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jay 💖 Aaliyah</title>
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: 'Poppins', sans-serif;
-      background: radial-gradient(circle at top left, #ff7eb3, #ff758c, #ff9a9e, #fad0c4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #fff;
-      overflow: hidden;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    .stars::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(#fff 1px, transparent 1px);
-      background-size: 60px 60px;
-      opacity: 0.18;
-      animation: twinkle 8s linear infinite;
-      pointer-events: none;
-    }
+<style>
+*{box-sizing:border-box;}
 
-    @keyframes twinkle {
-      0%,100% { opacity: 0.15; }
-      50% { opacity: 0.3; }
-    }
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:'Poppins',sans-serif;
+  background:radial-gradient(circle at top left,#ff7eb3,#ff758c,#ff9a9e,#fad0c4);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+  overflow:hidden;
+}
 
-    .card {
-      background: rgba(255, 255, 255, 0.18);
-      backdrop-filter: blur(22px) saturate(180%);
-      border-radius: 30px;
-      border: 1px solid rgba(255,255,255,0.35);
-      padding: 36px 24px 44px;
-      max-width: 460px;
-      width: 92%;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.35);
-      position: relative;
-      animation: pop 1s ease;
-    }
+/* STAR FIELD */
+.stars::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:radial-gradient(#fff 1px,transparent 1px);
+  background-size:60px 60px;
+  opacity:0.2;
+  animation:twinkle 8s linear infinite;
+  pointer-events:none;
+}
 
-    @keyframes pop {
-      0% { transform: scale(0.8) translateY(20px); opacity: 0; }
-      100% { transform: scale(1) translateY(0); opacity: 1; }
-    }
+@keyframes twinkle{
+  0%,100%{opacity:.15;}
+  50%{opacity:.35;}
+}
 
-    h1 { font-family: 'Pacifico', cursive; font-size: 2.5rem; text-shadow: 0 0 18px rgba(255,255,255,0.6); }
-    p { font-size: 1.05rem; line-height: 1.7; }
+/* GLASS CARD */
+.card{
+  background:rgba(255,255,255,.18);
+  backdrop-filter:blur(22px) saturate(180%);
+  border-radius:30px;
+  border:1px solid rgba(255,255,255,.35);
+  padding:36px 24px 44px;
+  max-width:460px;
+  width:92%;
+  box-shadow:0 25px 60px rgba(0,0,0,.35);
+  animation:pop 1s ease,pulse 1.4s infinite;
+}
 
-    .type { border-right: 2px solid #fff; white-space: nowrap; overflow: hidden; display: inline-block; }
+@keyframes pop{
+  0%{transform:scale(.8);opacity:0;}
+  100%{transform:scale(1);opacity:1;}
+}
 
-    .gif { width: 100%; border-radius: 18px; margin: 16px 0; box-shadow: 0 10px 25px rgba(0,0,0,0.35); }
+@keyframes pulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.03);}
+  100%{transform:scale(1);}
+}
 
-    .buttons { display: flex; justify-content: center; gap: 16px; margin-top: 22px; }
+h1{
+  font-family:'Pacifico',cursive;
+  font-size:2.5rem;
+  margin:10px 0;
+  text-shadow:0 0 18px rgba(255,255,255,.6);
+}
 
-    button {
-      border: none; border-radius: 40px; padding: 14px 28px; font-size: 1.05rem;
-      font-weight: 600; cursor: pointer; transition: 0.25s ease; box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-    }
+p{
+  font-size:1.05rem;
+  line-height:1.7;
+}
 
-    .yes { background: linear-gradient(135deg, #ff4d6d, #ff758f); color: white; }
+.type{
+  border-right:2px solid #fff;
+  white-space:nowrap;
+  overflow:hidden;
+  display:inline-block;
+}
 
-    .no { background: #fff; color: #ff4d6d; animation: wiggle 1.5s infinite; }
+/* BUTTONS */
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  margin-top:25px;
+}
 
-    @keyframes wiggle {
-      0%,100%{ transform: rotate(0deg); }
-      25%{ transform: rotate(3deg); }
-      75%{ transform: rotate(-3deg); }
-    }
+button{
+  border:none;
+  border-radius:40px;
+  padding:14px 28px;
+  font-size:1.05rem;
+  font-weight:600;
+  cursor:pointer;
+  transition:.25s ease;
+  box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
 
-    .hidden { display: none; }
+.yes{
+  background:linear-gradient(135deg,#ff4d6d,#ff758f);
+  color:white;
+}
 
-    .emojis span { position: fixed; bottom: -40px; animation: float 6s linear infinite; pointer-events: none; }
+.no{
+  background:white;
+  color:#ff4d6d;
+  animation:wiggle 1.5s infinite;
+}
 
-    @keyframes float {
-      0% { transform: translateY(0) scale(0.9); opacity: 0; }
-      10% { opacity: 1; }
-      100% { transform: translateY(-110vh) scale(1.2); opacity: 0; }
-    }
+@keyframes wiggle{
+  0%,100%{transform:rotate(0deg);}
+  25%{transform:rotate(4deg);}
+  75%{transform:rotate(-4deg);}
+}
 
-    canvas { position: fixed; inset: 0; pointer-events: none; }
+.hidden{display:none}
 
-    .pulse { animation: pulse 1.2s infinite; }
-    @keyframes pulse { 0%{ transform: scale(1); } 50%{ transform: scale(1.05); } 100%{ transform: scale(1); } }
-  </style>
+/* FLOATING EMOJIS */
+.emojis span{
+  position:fixed;
+  bottom:-40px;
+  animation:float 6s linear infinite;
+  pointer-events:none;
+}
+
+@keyframes float{
+  0%{transform:translateY(0) scale(.9);opacity:0;}
+  10%{opacity:1;}
+  100%{transform:translateY(-110vh) scale(1.2);opacity:0;}
+}
+
+/* FIREWORKS */
+canvas{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+}
+</style>
 </head>
+
 <body>
-  <div class="stars"></div>
-  <canvas id="fireworks"></canvas>
+<div class="stars"></div>
+<canvas id="fireworks"></canvas>
 
-  <audio id="bgm" loop>
-    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_4f07e3f40a.mp3" type="audio/mpeg">
-  </audio>
+<audio id="bgm" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_4f07e3f40a.mp3" type="audio/mpeg">
+</audio>
 
-  <div class="card pulse">
-    <h1>Hey Aaliyah 💖✨</h1>
-    <p class="type" id="typeText"></p>
+<div class="card">
+  <h1>Hey Aaliyah 💖✨</h1>
+  <p class="type" id="typeText"></p>
 
-    <img class="gif" src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" />
+  <h1>Will you be my Valentine? 🌹🥰</h1>
 
-    <h1>Will you be my Valentine? 🌹🥰</h1>
-
-    <div class="buttons">
-      <button class="yes" onclick="sayYes()">Yes 😍💖</button>
-      <button class="no" id="noBtn">No 🙈💔</button>
-    </div>
-
-    <div id="yesMsg" class="hidden">
-      <h1>YAYYYY!!! 🥰💞💘</h1>
-      <p>You just made my heart explode 😭💓 You are my forever ✨🫶</p>
-      <img class="gif" src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" />
-      <h1>Forever yours, Jay ❤️♾️</h1>
-    </div>
+  <div class="buttons">
+    <button class="yes" onclick="sayYes()">Yes 😍💖</button>
+    <button class="no" id="noBtn">No 🙈💔</button>
   </div>
 
-  <div class="emojis" id="emojis"></div>
+  <div id="yesMsg" class="hidden">
+    <h1>YAYYYY!!! 🥰💞💘</h1>
+    <p>You just made my heart explode 😭💓<br>You are my forever ✨🫶</p>
+    <h1>Forever yours, Jay ❤️♾️</h1>
+  </div>
+</div>
 
-  <script>
-    const text = "Every heartbeat of mine whispers your name 💓 Every dream I see has you in it 🌙 And every tomorrow I want is with you 🤞✨";
-    let i = 0;
-    function typeWriter(){ if(i < text.length){ document.getElementById('typeText').innerHTML += text.charAt(i); i++; setTimeout(typeWriter, 40);} }
-    typeWriter();
+<div class="emojis" id="emojis"></div>
 
-    const noBtn = document.getElementById('noBtn');
-    noBtn.addEventListener('mouseenter', ()=> moveNo(noBtn));
-    noBtn.addEventListener('click', ()=> moveNo(noBtn));
+<script>
+/* TYPEWRITER */
+const text="From the first hello to every heartbeat after, you became my favorite part of life 💓 Every dream I dream has you in it 🌙 And every tomorrow I want… is with you 🤞✨";
+let i=0;
+function typeWriter(){
+  if(i<text.length){
+    document.getElementById("typeText").innerHTML+=text.charAt(i);
+    i++;
+    setTimeout(typeWriter,40);
+  }
+}
+typeWriter();
 
-    function moveNo(btn){
-      const x = Math.random()*(window.innerWidth-btn.clientWidth);
-      const y = Math.random()*(window.innerHeight-btn.clientHeight);
-      btn.style.position='fixed'; btn.style.left=x+'px'; btn.style.top=y+'px';
+/* PLAYFUL NO BUTTON */
+const noBtn=document.getElementById("noBtn");
+noBtn.addEventListener("mouseenter",()=>moveNo(noBtn));
+noBtn.addEventListener("click",()=>moveNo(noBtn));
+
+function moveNo(btn){
+  const x=Math.random()*(window.innerWidth-btn.clientWidth);
+  const y=Math.random()*(window.innerHeight-btn.clientHeight);
+  btn.style.position="fixed";
+  btn.style.left=x+"px";
+  btn.style.top=y+"px";
+}
+
+/* YES ACTION */
+function sayYes(){
+  document.querySelector(".buttons").style.display="none";
+  document.getElementById("yesMsg").classList.remove("hidden");
+  startEmojis(180);
+  launchFireworks();
+  document.getElementById("bgm").play();
+}
+
+/* EMOJI RAIN */
+const emojiList=['❤️','💖','💘','💕','💞','😍','🥰','😘','🌹','✨','💫','🫶','♾️'];
+
+function startEmojis(count=30){
+  const container=document.getElementById("emojis");
+  setInterval(()=>{
+    for(let i=0;i<count;i++){
+      const s=document.createElement("span");
+      s.innerText=emojiList[Math.floor(Math.random()*emojiList.length)];
+      s.style.left=Math.random()*100+"vw";
+      s.style.fontSize=(18+Math.random()*26)+"px";
+      s.style.animationDuration=(4+Math.random()*4)+"s";
+      container.appendChild(s);
+      setTimeout(()=>s.remove(),9000);
     }
+  },1000);
+}
+startEmojis(20);
 
-    function sayYes(){
-      document.querySelector('.buttons').style.display='none';
-      document.getElementById('yesMsg').classList.remove('hidden');
-      startEmojis(180); launchFireworks(); document.getElementById('bgm').play();
+/* FIREWORKS */
+const canvas=document.getElementById("fireworks");
+const ctx=canvas.getContext("2d");
+canvas.width=innerWidth;
+canvas.height=innerHeight;
+let particles=[];
+
+function launchFireworks(){
+  setInterval(()=>{
+    const x=Math.random()*canvas.width;
+    const y=Math.random()*canvas.height/2;
+    for(let i=0;i<70;i++){
+      particles.push({
+        x,y,
+        vx:(Math.random()-.5)*6,
+        vy:(Math.random()-.5)*6,
+        life:90
+      });
     }
+  },700);
+}
 
-    const emojiList=['❤️','💖','💘','💕','💞','😍','🥰','😘','🌹','✨','💫','🫶','♾️'];
-    function startEmojis(count=30){
-      const container=document.getElementById('emojis');
-      setInterval(()=>{
-        for(let i=0;i<count;i++){
-          const s=document.createElement('span'); s.innerText=emojiList[Math.floor(Math.random()*emojiList.length)];
-          s.style.left=Math.random()*100+'vw'; s.style.fontSize=(18+Math.random()*26)+'px';
-          s.style.animationDuration=(4+Math.random()*4)+'s'; container.appendChild(s);
-          setTimeout(()=>s.remove(),9000);
-        }
-      },1000);
-    }
-    startEmojis(20);
-
-    const canvas=document.getElementById('fireworks'); const ctx=canvas.getContext('2d');
-    canvas.width=innerWidth; canvas.height=innerHeight;
-    let particles=[];
-
-    function launchFireworks(){ setInterval(()=>{ const x=Math.random()*canvas.width; const y=Math.random()*canvas.height/2;
-      for(let i=0;i<60;i++) particles.push({x,y,vx:(Math.random()-.5)*6,vy:(Math.random()-.5)*6,life:80}); },700); }
-
-    function animate(){ ctx.clearRect(0,0,canvas.width,canvas.height);
-      particles.forEach((p,i)=>{ p.x+=p.vx; p.y+=p.vy; p.life--; ctx.fillStyle='#fff'; ctx.fillRect(p.x,p.y,2,2);
-        if(p.life<=0) particles.splice(i,1); }); requestAnimationFrame(animate); }
-    animate();
-  </script>
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach((p,i)=>{
+    p.x+=p.vx;
+    p.y+=p.vy;
+    p.life--;
+    ctx.fillStyle="#fff";
+    ctx.fillRect(p.x,p.y,2,2);
+    if(p.life<=0) particles.splice(i,1);
+  });
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
 </body>
 </html>
