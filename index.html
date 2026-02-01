@@ -23,30 +23,29 @@ body{
   overflow:hidden;
 }
 
-/* STAR FIELD */
+/* Stars */
 .stars::before{
   content:"";
   position:fixed;
   inset:0;
   background:radial-gradient(#fff 1px,transparent 1px);
   background-size:60px 60px;
-  opacity:0.2;
+  opacity:0.25;
   animation:twinkle 8s linear infinite;
-  pointer-events:none;
 }
 
 @keyframes twinkle{
   0%,100%{opacity:.15;}
-  50%{opacity:.35;}
+  50%{opacity:.4;}
 }
 
-/* GLASS CARD */
+/* Glass Card */
 .card{
   background:rgba(255,255,255,.18);
   backdrop-filter:blur(22px) saturate(180%);
-  border-radius:30px;
+  border-radius:32px;
   border:1px solid rgba(255,255,255,.35);
-  padding:36px 24px 44px;
+  padding:40px 25px 45px;
   max-width:460px;
   width:92%;
   box-shadow:0 25px 60px rgba(0,0,0,.35);
@@ -68,11 +67,11 @@ h1{
   font-family:'Pacifico',cursive;
   font-size:2.5rem;
   margin:10px 0;
-  text-shadow:0 0 18px rgba(255,255,255,.6);
+  text-shadow:0 0 18px rgba(255,255,255,.7);
 }
 
 p{
-  font-size:1.05rem;
+  font-size:1.1rem;
   line-height:1.7;
 }
 
@@ -83,7 +82,7 @@ p{
   display:inline-block;
 }
 
-/* BUTTONS */
+/* Buttons */
 .buttons{
   display:flex;
   justify-content:center;
@@ -94,8 +93,8 @@ p{
 button{
   border:none;
   border-radius:40px;
-  padding:14px 28px;
-  font-size:1.05rem;
+  padding:14px 30px;
+  font-size:1.1rem;
   font-weight:600;
   cursor:pointer;
   transition:.25s ease;
@@ -121,7 +120,7 @@ button{
 
 .hidden{display:none}
 
-/* FLOATING EMOJIS */
+/* Floating Emojis */
 .emojis span{
   position:fixed;
   bottom:-40px;
@@ -132,10 +131,10 @@ button{
 @keyframes float{
   0%{transform:translateY(0) scale(.9);opacity:0;}
   10%{opacity:1;}
-  100%{transform:translateY(-110vh) scale(1.2);opacity:0;}
+  100%{transform:translateY(-110vh) scale(1.3);opacity:0;}
 }
 
-/* FIREWORKS */
+/* Fireworks */
 canvas{
   position:fixed;
   inset:0;
@@ -145,6 +144,7 @@ canvas{
 </head>
 
 <body>
+
 <div class="stars"></div>
 <canvas id="fireworks"></canvas>
 
@@ -173,62 +173,62 @@ canvas{
 <div class="emojis" id="emojis"></div>
 
 <script>
-/* TYPEWRITER */
+/* Typing Effect */
 const text="From the first hello to every heartbeat after, you became my favorite part of life 💓 Every dream I dream has you in it 🌙 And every tomorrow I want… is with you 🤞✨";
 let i=0;
 function typeWriter(){
   if(i<text.length){
-    document.getElementById(\"typeText\").innerHTML+=text.charAt(i);
+    document.getElementById("typeText").innerHTML+=text.charAt(i);
     i++;
     setTimeout(typeWriter,40);
   }
 }
 typeWriter();
 
-/* PLAYFUL NO BUTTON */
-const noBtn=document.getElementById(\"noBtn\");
-noBtn.addEventListener(\"mouseenter\",()=>moveNo(noBtn));
-noBtn.addEventListener(\"click\",()=>moveNo(noBtn));
+/* Playful No Button */
+const noBtn=document.getElementById("noBtn");
+noBtn.addEventListener("mouseenter",()=>moveNo(noBtn));
+noBtn.addEventListener("click",()=>moveNo(noBtn));
 
 function moveNo(btn){
   const x=Math.random()*(window.innerWidth-btn.clientWidth);
   const y=Math.random()*(window.innerHeight-btn.clientHeight);
-  btn.style.position=\"fixed\";
-  btn.style.left=x+\"px\";
-  btn.style.top=y+\"px\";
+  btn.style.position="fixed";
+  btn.style.left=x+"px";
+  btn.style.top=y+"px";
 }
 
-/* YES ACTION */
+/* Yes Click */
 function sayYes(){
-  document.querySelector(\".buttons\").style.display=\"none\";
-  document.getElementById(\"yesMsg\").classList.remove(\"hidden\");
-  startEmojis(180);
+  document.querySelector(".buttons").style.display="none";
+  document.getElementById("yesMsg").classList.remove("hidden");
+  startEmojis(200);
   launchFireworks();
-  document.getElementById(\"bgm\").play();
+  document.getElementById("bgm").play();
 }
 
-/* EMOJI RAIN */
+/* Emoji Storm */
 const emojiList=['❤️','💖','💘','💕','💞','😍','🥰','😘','🌹','✨','💫','🫶','♾️'];
 
 function startEmojis(count=30){
-  const container=document.getElementById(\"emojis\");
+  const container=document.getElementById("emojis");
   setInterval(()=>{
     for(let i=0;i<count;i++){
-      const s=document.createElement(\"span\");
+      const s=document.createElement("span");
       s.innerText=emojiList[Math.floor(Math.random()*emojiList.length)];
-      s.style.left=Math.random()*100+\"vw\";
-      s.style.fontSize=(18+Math.random()*26)+\"px\";
-      s.style.animationDuration=(4+Math.random()*4)+\"s\";
+      s.style.left=Math.random()*100+"vw";
+      s.style.fontSize=(18+Math.random()*30)+"px";
+      s.style.animationDuration=(4+Math.random()*4)+"s";
       container.appendChild(s);
       setTimeout(()=>s.remove(),9000);
     }
-  },1000);
+  },900);
 }
 startEmojis(20);
 
-/* FIREWORKS */
-const canvas=document.getElementById(\"fireworks\");
-const ctx=canvas.getContext(\"2d\");
+/* Fireworks */
+const canvas=document.getElementById("fireworks");
+const ctx=canvas.getContext("2d");
 canvas.width=innerWidth;
 canvas.height=innerHeight;
 let particles=[];
@@ -237,15 +237,15 @@ function launchFireworks(){
   setInterval(()=>{
     const x=Math.random()*canvas.width;
     const y=Math.random()*canvas.height/2;
-    for(let i=0;i<70;i++){
+    for(let i=0;i<80;i++){
       particles.push({
         x,y,
-        vx:(Math.random()-.5)*6,
-        vy:(Math.random()-.5)*6,
-        life:90
+        vx:(Math.random()-.5)*7,
+        vy:(Math.random()-.5)*7,
+        life:100
       });
     }
-  },700);
+  },650);
 }
 
 function animate(){
@@ -254,7 +254,7 @@ function animate(){
     p.x+=p.vx;
     p.y+=p.vy;
     p.life--;
-    ctx.fillStyle=\"#fff\";
+    ctx.fillStyle="#fff";
     ctx.fillRect(p.x,p.y,2,2);
     if(p.life<=0) particles.splice(i,1);
   });
@@ -262,5 +262,6 @@ function animate(){
 }
 animate();
 </script>
+
 </body>
 </html>
