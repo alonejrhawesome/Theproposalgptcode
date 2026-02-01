@@ -1,267 +1,84 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jay 💖 Aaliyah</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-<style>
-*{box-sizing:border-box;}
-
-body{
-  margin:0;
-  min-height:100vh;
-  font-family:'Poppins',sans-serif;
-  background:radial-gradient(circle at top left,#ff7eb3,#ff758c,#ff9a9e,#fad0c4);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  color:white;
-  overflow:hidden;
-}
-
-/* Stars */
-.stars::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:radial-gradient(#fff 1px,transparent 1px);
-  background-size:60px 60px;
-  opacity:0.25;
-  animation:twinkle 8s linear infinite;
-}
-
-@keyframes twinkle{
-  0%,100%{opacity:.15;}
-  50%{opacity:.4;}
-}
-
-/* Glass Card */
-.card{
-  background:rgba(255,255,255,.18);
-  backdrop-filter:blur(22px) saturate(180%);
-  border-radius:32px;
-  border:1px solid rgba(255,255,255,.35);
-  padding:40px 25px 45px;
-  max-width:460px;
-  width:92%;
-  box-shadow:0 25px 60px rgba(0,0,0,.35);
-  animation:pop 1s ease,pulse 1.4s infinite;
-}
-
-@keyframes pop{
-  0%{transform:scale(.8);opacity:0;}
-  100%{transform:scale(1);opacity:1;}
-}
-
-@keyframes pulse{
-  0%{transform:scale(1);}
-  50%{transform:scale(1.03);}
-  100%{transform:scale(1);}
-}
-
-h1{
-  font-family:'Pacifico',cursive;
-  font-size:2.5rem;
-  margin:10px 0;
-  text-shadow:0 0 18px rgba(255,255,255,.7);
-}
-
-p{
-  font-size:1.1rem;
-  line-height:1.7;
-}
-
-.type{
-  border-right:2px solid #fff;
-  white-space:nowrap;
-  overflow:hidden;
-  display:inline-block;
-}
-
-/* Buttons */
-.buttons{
-  display:flex;
-  justify-content:center;
-  gap:16px;
-  margin-top:25px;
-}
-
-button{
-  border:none;
-  border-radius:40px;
-  padding:14px 30px;
-  font-size:1.1rem;
-  font-weight:600;
-  cursor:pointer;
-  transition:.25s ease;
-  box-shadow:0 10px 25px rgba(0,0,0,.25);
-}
-
-.yes{
-  background:linear-gradient(135deg,#ff4d6d,#ff758f);
-  color:white;
-}
-
-.no{
-  background:white;
-  color:#ff4d6d;
-  animation:wiggle 1.5s infinite;
-}
-
-@keyframes wiggle{
-  0%,100%{transform:rotate(0deg);}
-  25%{transform:rotate(4deg);}
-  75%{transform:rotate(-4deg);}
-}
-
-.hidden{display:none}
-
-/* Floating Emojis */
-.emojis span{
-  position:fixed;
-  bottom:-40px;
-  animation:float 6s linear infinite;
-  pointer-events:none;
-}
-
-@keyframes float{
-  0%{transform:translateY(0) scale(.9);opacity:0;}
-  10%{opacity:1;}
-  100%{transform:translateY(-110vh) scale(1.3);opacity:0;}
-}
-
-/* Fireworks */
-canvas{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jay ❤️ Aaliyah</title>
+  <meta name="description" content="A tiny Valentine proposal website from Jay to Aaliyah." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
+  <canvas id="confetti" aria-hidden="true"></canvas>
 
-<div class="stars"></div>
-<canvas id="fireworks"></canvas>
+  <main class="card" role="main">
+    <header class="header">
+      <div class="badge">From <strong>Jay</strong> 💌 To <strong>Aaliyah</strong> 🌷</div>
+      <h1>Hey Aaliyah… will you be my Valentine? 💘</h1>
+      <p class="sub">I made this little page just for you 🥺✨</p>
+    </header>
 
-<audio id="bgm" loop>
-  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_4f07e3f40a.mp3" type="audio/mpeg">
-</audio>
+    <section class="gifs" aria-label="Cute GIFs">
+      <figure class="gif">
+        <img
+          src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif"
+          alt="A cute animated celebration gif"
+          loading="lazy"
+        />
+        <figcaption>Us vibing together 🧸💞</figcaption>
+      </figure>
 
-<div class="card">
-  <h1>Hey Aaliyah 💖✨</h1>
-  <p class="type" id="typeText"></p>
+      <figure class="gif">
+        <img
+          src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif"
+          alt="A cute hearts gif"
+          loading="lazy"
+        />
+        <figcaption>My heart doing the most 💓🫶</figcaption>
+      </figure>
 
-  <h1>Will you be my Valentine? 🌹🥰</h1>
+      <figure class="gif">
+        <img
+          src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif"
+          alt="A cute excited gif"
+          loading="lazy"
+        />
+        <figcaption>Me waiting for your answer 😳🌸</figcaption>
+      </figure>
+    </section>
 
-  <div class="buttons">
-    <button class="yes" onclick="sayYes()">Yes 😍💖</button>
-    <button class="no" id="noBtn">No 🙈💔</button>
-  </div>
+    <section class="note" aria-label="Message">
+      <p>
+        Aaliyah, you make my days softer, brighter, and a little more magical ✨😊
+        <br />
+        So… what do you say? 💍 (Okay not rushing, but still 😄💖)
+      </p>
+    </section>
 
-  <div id="yesMsg" class="hidden">
-    <h1>YAYYYY!!! 🥰💞💘</h1>
-    <p>You just made my heart explode 😭💓<br>You are my forever ✨🫶</p>
-    <h1>Forever yours, Jay ❤️♾️</h1>
-  </div>
-</div>
+    <section class="actions" aria-label="Answer buttons">
+      <button id="yesBtn" class="btn yes" type="button">YES! 💖🥰</button>
+      <button id="noBtn" class="btn no" type="button">No 🙈</button>
+    </section>
 
-<div class="emojis" id="emojis"></div>
+    <section id="result" class="result" aria-live="polite" hidden>
+      <h2>YAYYYYY!! 😭💘</h2>
+      <p>
+        Aaliyah, you just made me the happiest human ever 🥹🌷
+        <br />
+        Date idea: coffee + something sweet + a long walk? ☕🍰🚶‍♀️🚶‍♂️
+      </p>
 
-<script>
-/* Typing Effect */
-const text="From the first hello to every heartbeat after, you became my favorite part of life 💓 Every dream I dream has you in it 🌙 And every tomorrow I want… is with you 🤞✨";
-let i=0;
-function typeWriter(){
-  if(i<text.length){
-    document.getElementById("typeText").innerHTML+=text.charAt(i);
-    i++;
-    setTimeout(typeWriter,40);
-  }
-}
-typeWriter();
+      <div class="finalRow">
+        <span class="pill">Jay ❤️ Aaliyah</span>
+        <a class="pill link" id="shareLink" href="#" role="button">Copy shareable link 🔗</a>
+      </div>
+    </section>
 
-/* Playful No Button */
-const noBtn=document.getElementById("noBtn");
-noBtn.addEventListener("mouseenter",()=>moveNo(noBtn));
-noBtn.addEventListener("click",()=>moveNo(noBtn));
+    <footer class="footer">
+      <p>Made with love, giggles, and way too many emojis 😄💞</p>
+    </footer>
+  </main>
 
-function moveNo(btn){
-  const x=Math.random()*(window.innerWidth-btn.clientWidth);
-  const y=Math.random()*(window.innerHeight-btn.clientHeight);
-  btn.style.position="fixed";
-  btn.style.left=x+"px";
-  btn.style.top=y+"px";
-}
-
-/* Yes Click */
-function sayYes(){
-  document.querySelector(".buttons").style.display="none";
-  document.getElementById("yesMsg").classList.remove("hidden");
-  startEmojis(200);
-  launchFireworks();
-  document.getElementById("bgm").play();
-}
-
-/* Emoji Storm */
-const emojiList=['❤️','💖','💘','💕','💞','😍','🥰','😘','🌹','✨','💫','🫶','♾️'];
-
-function startEmojis(count=30){
-  const container=document.getElementById("emojis");
-  setInterval(()=>{
-    for(let i=0;i<count;i++){
-      const s=document.createElement("span");
-      s.innerText=emojiList[Math.floor(Math.random()*emojiList.length)];
-      s.style.left=Math.random()*100+"vw";
-      s.style.fontSize=(18+Math.random()*30)+"px";
-      s.style.animationDuration=(4+Math.random()*4)+"s";
-      container.appendChild(s);
-      setTimeout(()=>s.remove(),9000);
-    }
-  },900);
-}
-startEmojis(20);
-
-/* Fireworks */
-const canvas=document.getElementById("fireworks");
-const ctx=canvas.getContext("2d");
-canvas.width=innerWidth;
-canvas.height=innerHeight;
-let particles=[];
-
-function launchFireworks(){
-  setInterval(()=>{
-    const x=Math.random()*canvas.width;
-    const y=Math.random()*canvas.height/2;
-    for(let i=0;i<80;i++){
-      particles.push({
-        x,y,
-        vx:(Math.random()-.5)*7,
-        vy:(Math.random()-.5)*7,
-        life:100
-      });
-    }
-  },650);
-}
-
-function animate(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  particles.forEach((p,i)=>{
-    p.x+=p.vx;
-    p.y+=p.vy;
-    p.life--;
-    ctx.fillStyle="#fff";
-    ctx.fillRect(p.x,p.y,2,2);
-    if(p.life<=0) particles.splice(i,1);
-  });
-  requestAnimationFrame(animate);
-}
-animate();
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
